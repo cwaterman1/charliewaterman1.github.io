@@ -1,3 +1,7 @@
+/* ------------------------------
+   GENERAL
+------------------------------ */
+
 * {
     margin: 0;
     padding: 0;
@@ -9,124 +13,300 @@ html {
 }
 
 body {
+    background: #f7f6f2;
+    color: #171717;
     font-family: Georgia, "Times New Roman", serif;
-    color: #1a1a1a;
-    background: #f8f7f3;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
-header {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 50px 40px 30px;
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    opacity: 0.55;
+}
+
+
+/* ------------------------------
+   HEADER
+------------------------------ */
+
+.site-header {
+    width: 100%;
+    padding: 32px 5vw;
+
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
-    border-bottom: 1px solid #d5d3cd;
+    align-items: center;
+
+    border-bottom: 1px solid #d8d6d0;
 }
 
-header h1 {
-    font-size: 2.4rem;
-    font-weight: normal;
-    letter-spacing: -0.02em;
-}
-
-header p {
-    margin-top: 4px;
-    font-size: 0.9rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #666;
+.logo {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 0.12em;
 }
 
 nav {
     display: flex;
-    gap: 28px;
+    gap: 30px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
 }
 
-nav a {
-    color: #1a1a1a;
-    text-decoration: none;
-    font-size: 0.9rem;
+
+/* ------------------------------
+   HERO
+------------------------------ */
+
+.hero {
+    min-height: 78vh;
+
+    padding: 12vh 5vw 10vh;
+
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 5vw;
+
+    align-items: start;
 }
 
-nav a:hover {
+.hero-small,
+.section-label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #66645f;
+}
+
+.hero h1 {
+    font-size: clamp(5rem, 14vw, 13rem);
+    font-weight: normal;
+    line-height: 0.78;
+    letter-spacing: -0.07em;
+
+    grid-column: 2;
+}
+
+.hero-description {
+    grid-column: 2;
+
+    max-width: 550px;
+
+    margin-top: 5vh;
+}
+
+.hero-description p {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+}
+
+
+/* ------------------------------
+   FEATURED WORK
+------------------------------ */
+
+.featured {
+    padding: 8vh 5vw 14vh;
+
+    border-top: 1px solid #d8d6d0;
+}
+
+.work {
+    margin-top: 7vh;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    border-bottom: 1px solid #d8d6d0;
+
+    padding-bottom: 25px;
+}
+
+.work-title h2 {
+    font-size: clamp(3rem, 7vw, 7rem);
+    font-weight: normal;
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+}
+
+.work-title p {
+    margin-top: 12px;
+    color: #66645f;
+    font-style: italic;
+}
+
+.work-info {
+    text-align: right;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+.work-info p {
+    margin-bottom: 5px;
+}
+
+.work-info a {
+    display: block;
+    margin-top: 20px;
+
     text-decoration: underline;
 }
 
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 100px 40px;
+
+/* ------------------------------
+   ABOUT
+------------------------------ */
+
+.about-preview {
+    padding: 8vh 5vw 14vh;
+
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 5vw;
+
+    border-top: 1px solid #d8d6d0;
 }
 
-section {
-    margin-bottom: 130px;
+.about-text {
+    max-width: 700px;
 }
 
-section h2 {
-    font-size: 4.5rem;
-    font-weight: normal;
-    line-height: 1;
-    letter-spacing: -0.04em;
-    margin-bottom: 30px;
+.about-text p {
+    font-size: clamp(1.5rem, 3vw, 2.8rem);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
 }
 
-section p {
-    max-width: 650px;
-    font-size: 1.2rem;
-    color: #444;
-}
-
-section a {
+.about-text a {
     display: inline-block;
-    margin-top: 25px;
-    color: #1a1a1a;
-    text-decoration: none;
-    border-bottom: 1px solid #1a1a1a;
-    padding-bottom: 3px;
+
+    margin-top: 35px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    text-decoration: underline;
 }
 
-section a:hover {
-    opacity: 0.6;
+
+/* ------------------------------
+   CONTACT
+------------------------------ */
+
+.contact-preview {
+    padding: 8vh 5vw 15vh;
+
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 5vw;
+
+    border-top: 1px solid #d8d6d0;
 }
+
+.email {
+    font-size: clamp(1.5rem, 4vw, 4rem);
+    letter-spacing: -0.04em;
+}
+
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
 
 footer {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 30px 40px 50px;
-    border-top: 1px solid #d5d3cd;
-    color: #777;
-    font-size: 0.85rem;
+    padding: 25px 5vw 35px;
+
+    border-top: 1px solid #d8d6d0;
+
+    display: flex;
+    justify-content: space-between;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    color: #77746d;
 }
+
+
+/* ------------------------------
+   MOBILE
+------------------------------ */
 
 @media (max-width: 700px) {
 
-    header {
-        padding: 30px 25px;
-        display: block;
+    .site-header {
+        padding: 25px;
+        align-items: flex-start;
     }
 
     nav {
-        margin-top: 25px;
-        gap: 18px;
+        gap: 15px;
         flex-wrap: wrap;
+        justify-content: flex-end;
     }
 
-    main {
-        padding: 70px 25px;
+    .hero {
+        min-height: auto;
+
+        padding: 12vh 25px 15vh;
+
+        display: block;
     }
 
-    section {
-        margin-bottom: 90px;
+    .hero-small {
+        margin-bottom: 8vh;
     }
 
-    section h2 {
-        font-size: 3.2rem;
+    .hero h1 {
+        font-size: 24vw;
     }
 
-    section p {
-        font-size: 1.05rem;
+    .hero-description {
+        margin-top: 8vh;
+    }
+
+    .featured,
+    .about-preview,
+    .contact-preview {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .work {
+        display: block;
+    }
+
+    .work-info {
+        margin-top: 30px;
+        text-align: left;
+    }
+
+    .about-preview,
+    .contact-preview {
+        display: block;
+    }
+
+    .about-text {
+        margin-top: 50px;
+    }
+
+    .contact-preview > div:last-child {
+        margin-top: 50px;
     }
 
     footer {
