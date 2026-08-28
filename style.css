@@ -162,7 +162,7 @@ a {
 .music-photo {
     grid-area: music;
 
-    width: 80%;
+    width: 100%;
 
     margin-top: 2vh;
 
@@ -214,11 +214,11 @@ a {
 
     width: 118%;
 
-    justify-self: end;
+    justify-self: start;
 
     margin-top: 0.5vh;
 
-    transform: translateX(-10%);
+    transform: translateX(-24%);
 }
 
 .architecture-photo img {
@@ -353,7 +353,7 @@ footer {
     /* MUSIC */
 
     .music-photo {
-        width: 90%;
+        width: 100%;
 
         margin-top: 0;
 
@@ -385,9 +385,9 @@ footer {
 
         margin-top: 0;
 
-        justify-self: end;
+        justify-self: start;
 
-        transform: translateX(-8%);
+        transform: translateX(-20%);
     }
 
 
