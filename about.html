@@ -45,9 +45,7 @@
 
     <main class="about-main">
 
-        <!-- =========================
-             BIO / FIRST PHOTO
-        ========================== -->
+        <!-- BIO / FIRST PHOTO -->
 
         <section class="about-hero">
 
@@ -101,9 +99,7 @@
         </section>
 
 
-        <!-- =========================
-             SECOND PHOTO / CV
-        ========================== -->
+        <!-- WTC / CV -->
 
         <section class="about-lower">
 
@@ -134,27 +130,13 @@
                 </div>
 
 
-                <iframe
-                    class="cv-frame"
-                    src="files/charlie-waterman-cv.pdf#view=FitH"
-                    title="Charlie Waterman CV"
-                ></iframe>
-
-
-                <div class="cv-mobile">
-
-                    <p>
-                        The embedded CV is available on larger screens.
-                    </p>
-
-                    <a
-                        href="files/charlie-waterman-cv.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        view cv ↗
-                    </a>
-
+                <!-- PDF.js renders the PDF here -->
+                <div
+                    id="cv-pages"
+                    class="cv-pages"
+                    aria-label="Charlie Waterman curriculum vitae"
+                >
+                    <p class="cv-loading">loading cv...</p>
                 </div>
 
             </div>
@@ -167,6 +149,121 @@
     <footer>
         <span>© 2026 3rd &amp; Mercer Editions</span>
     </footer>
+
+
+    <!-- PDF.js: renders PDF pages without browser toolbar -->
+
+    <script type="module">
+
+        import * as pdfjsLib
+        from "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs";
+
+        pdfjsLib.GlobalWorkerOptions.workerSrc =
+            "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.worker.min.mjs";
+
+        const pdfURL = "files/charlie-waterman-cv.pdf";
+
+        const container = document.getElementById("cv-pages");
+
+        async function renderPDF() {
+
+            try {
+
+                const pdf =
+                    await pdfjsLib.getDocument(pdfURL).promise;
+
+                container.innerHTML = "";
+
+                for (
+                    let pageNumber = 1;
+                    pageNumber <= pdf.numPages;
+                    pageNumber++
+                ) {
+
+                    const page =
+                        await pdf.getPage(pageNumber);
+
+                    const originalViewport =
+                        page.getViewport({ scale: 1 });
+
+                    /*
+                       Render at high resolution for sharp text.
+                    */
+
+                    const availableWidth =
+                        container.clientWidth - 36;
+
+                    const pixelRatio =
+                        window.devicePixelRatio || 1;
+
+                    const scale =
+                        (availableWidth /
+                        originalViewport.width) *
+                        pixelRatio;
+
+                    const viewport =
+                        page.getViewport({ scale });
+
+                    const canvas =
+                        document.createElement("canvas");
+
+                    const wrapper =
+                        document.createElement("div");
+
+                    wrapper.className = "cv-page";
+
+                    const context =
+                        canvas.getContext("2d");
+
+                    canvas.width =
+                        viewport.width;
+
+                    canvas.height =
+                        viewport.height;
+
+                    canvas.style.width =
+                        (viewport.width / pixelRatio) + "px";
+
+                    canvas.style.height =
+                        (viewport.height / pixelRatio) + "px";
+
+                    wrapper.appendChild(canvas);
+
+                    container.appendChild(wrapper);
+
+                    await page.render({
+                        canvasContext: context,
+                        viewport: viewport
+                    }).promise;
+
+                }
+
+            }
+
+            catch (error) {
+
+                console.error(error);
+
+                container.innerHTML = `
+                    <div class="cv-error">
+                        <p>the cv couldn't be displayed here.</p>
+                        <a
+                            href="files/charlie-waterman-cv.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            open cv ↗
+                        </a>
+                    </div>
+                `;
+
+            }
+
+        }
+
+        renderPDF();
+
+    </script>
 
 </body>
 
