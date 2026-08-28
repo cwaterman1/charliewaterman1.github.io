@@ -933,10 +933,10 @@ a {
     display: grid;
 
     grid-template-columns:
-        minmax(0, 0.95fr)
-        minmax(0, 1.05fr);
+        minmax(0, 0.88fr)
+        minmax(0, 1.12fr);
 
-    column-gap: 7vw;
+    column-gap: 6vw;
 
     align-items: start;
 }
@@ -955,11 +955,11 @@ a {
 
     margin-bottom: 6vh;
 
-    font-size: clamp(1.7rem, 2.5vw, 2.6rem);
+    font-size: clamp(2.2rem, 3.2vw, 3.4rem);
 
-    line-height: 1.13;
+    line-height: 1.05;
 
-    letter-spacing: -0.015em;
+    letter-spacing: -0.02em;
 }
 
 
@@ -1082,11 +1082,16 @@ a {
 
     position: relative;
 
-    min-height: 570px;
+    min-height: 690px;
 }
 
+
+/*
+   Large waterfront photograph.
+*/
+
 .contact-photo-primary {
-    width: 90%;
+    width: 100%;
 
     margin-left: auto;
 
@@ -1098,21 +1103,27 @@ a {
 .contact-photo-primary img {
     width: 100%;
 
-    height: 360px;
+    height: 455px;
 
     object-fit: cover;
 
     object-position: center 48%;
 }
 
+
+/*
+   Larger subway photograph overlaps
+   the lower-left portion of the first.
+*/
+
 .contact-photo-secondary {
-    width: 39%;
+    width: 50%;
 
     position: absolute;
 
-    left: 0;
+    left: -2vw;
 
-    top: 300px;
+    top: 365px;
 
     z-index: 2;
 }
@@ -1120,7 +1131,7 @@ a {
 .contact-photo-secondary img {
     width: 100%;
 
-    height: 280px;
+    height: 335px;
 
     object-fit: cover;
 
@@ -1481,9 +1492,11 @@ footer {
     .contact-header-note {
         margin-top: 6vh;
 
+        max-width: 90%;
+
         font-size: 0.68rem;
 
-        line-height: 1.4;
+        line-height: 1.5;
     }
 
     .contact-content {
@@ -1499,7 +1512,7 @@ footer {
 
         margin-bottom: 5vh;
 
-        font-size: 1.7rem;
+        font-size: 2.1rem;
     }
 
     .form-field {
@@ -1511,32 +1524,35 @@ footer {
         font-size: 1.2rem;
     }
 
+
+    /* CONTACT PHOTOS */
+
     .contact-images {
-        min-height: 430px;
+        min-height: 500px;
     }
 
     .contact-photo-primary {
-        width: 92%;
+        width: 100%;
 
         margin-left: 0;
     }
 
     .contact-photo-primary img {
-        height: 270px;
+        height: 315px;
     }
 
     .contact-photo-secondary {
-        width: 42%;
+        width: 52%;
 
         left: auto;
 
         right: 0;
 
-        top: 225px;
+        top: 255px;
     }
 
     .contact-photo-secondary img {
-        height: 205px;
+        height: 245px;
     }
 
 
