@@ -316,7 +316,7 @@ a {
 
 
 /* =================================
-   ABOUT — WTC BACKGROUND PHOTO
+   ABOUT — WTC PHOTO
 ================================= */
 
 .about-photo-primary {
@@ -336,30 +336,14 @@ a {
 
 .about-photo-primary img {
     width: 100%;
-
     height: 100%;
 
     object-fit: cover;
-
-    /*
-       Keeps the skyline and WTC as
-       the visual focus.
-    */
 
     object-position: center center;
 
     opacity: 0.94;
 }
-
-
-/*
-   This wash behaves like the previous
-   photograph did behind the bio.
-
-   The left side is almost page-colored,
-   gradually revealing the photograph
-   toward the right.
-*/
 
 .about-photo-primary::after {
     content: "";
@@ -385,13 +369,6 @@ a {
             rgba(247, 247, 244, 0.02) 100%
         );
 }
-
-
-/*
-   A smaller vertical fade helps the
-   photograph dissolve naturally into
-   the page near the bottom.
-*/
 
 .about-photo-primary::before {
     content: "";
@@ -469,10 +446,6 @@ a {
     border-bottom: 1px solid #111111;
 
     padding-bottom: 3px;
-
-    transition:
-        color 0.25s ease,
-        opacity 0.25s ease;
 }
 
 .cv-link:hover {
@@ -493,7 +466,14 @@ a {
 }
 
 .cv-section {
-    width: 82%;
+    /*
+       Narrower than before so the rendered
+       resume pages are physically smaller.
+    */
+
+    width: 70%;
+
+    max-width: 900px;
 
     margin: 0 auto;
 
@@ -524,10 +504,6 @@ a {
     border-bottom: 1px solid #111111;
 
     padding-bottom: 2px;
-
-    transition:
-        opacity 0.25s ease,
-        color 0.25s ease;
 }
 
 .cv-heading a:hover {
@@ -542,13 +518,19 @@ a {
 .cv-pages {
     width: 100%;
 
-    height: 720px;
+    /*
+       Slightly smaller window.
+       Because the CV itself is also narrower,
+       much more of each page should now be visible.
+    */
+
+    height: 650px;
 
     overflow-y: auto;
 
     overflow-x: hidden;
 
-    padding: 18px;
+    padding: 20px;
 
     background: #deded9;
 
@@ -637,8 +619,6 @@ footer {
         --photo-gap: 2.5vw;
     }
 
-
-    /* HEADER */
 
     .site-header {
         padding: 20px;
@@ -764,9 +744,6 @@ footer {
         margin-bottom: 6vh;
     }
 
-
-    /* WTC PHOTO */
-
     .about-photo-primary {
         position: relative;
 
@@ -782,13 +759,9 @@ footer {
         background:
             linear-gradient(
                 180deg,
-
                 rgba(247, 247, 244, 0.05) 0%,
-
                 rgba(247, 247, 244, 0.20) 38%,
-
                 rgba(247, 247, 244, 0.78) 76%,
-
                 rgba(247, 247, 244, 1.00) 100%
             );
     }
@@ -796,9 +769,6 @@ footer {
     .about-photo-primary::before {
         display: none;
     }
-
-
-    /* BIO */
 
     .about-bio {
         width: 94%;
@@ -838,13 +808,15 @@ footer {
     }
 
     .cv-section {
-        width: 94%;
+        width: 88%;
+
+        max-width: none;
 
         margin: 0 auto;
     }
 
     .cv-pages {
-        height: 68vh;
+        height: 60vh;
 
         padding: 10px;
     }
