@@ -128,6 +128,7 @@ a {
 
 /* =================================
    MUSIC PHOTO
+   (unchanged)
 ================================= */
 
 .music-photo {
@@ -150,11 +151,11 @@ a {
 ================================= */
 
 .candid-photo {
-    width: 80%;
-    height: 51vh;
-    min-height: 420px;
+    width: 86%;
+    height: 59vh;
+    min-height: 500px;
     margin-left: 1%;
-    transform: translateX(-9%);
+    transform: translateX(-10%);
     position: relative;
     z-index: 3;
 }
@@ -173,7 +174,7 @@ a {
 
 .architecture-photo {
     width: 138%;
-    margin-top: 2.2vh;
+    margin-top: 8vh;
     transform: translateX(-42%);
     position: relative;
     z-index: 2;
@@ -286,16 +287,16 @@ footer {
     }
 
     .candid-photo {
-        width: 72%;
-        height: 86vw;
+        width: 76%;
+        height: 92vw;
         min-height: 0;
-        transform: translateX(10%);
+        transform: translateX(8%);
         margin-left: 0;
     }
 
     .architecture-photo {
         width: 98%;
-        margin-top: 3vh;
+        margin-top: 6vh;
         transform: translateX(-4%);
     }
 
