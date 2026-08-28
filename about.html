@@ -45,7 +45,7 @@
 
     <main class="about-main">
 
-        <!-- BIO / FIRST PHOTO -->
+        <!-- BIO / FIRST PHOTO / WTC OVERLAP -->
 
         <section class="about-hero">
 
@@ -96,12 +96,6 @@
 
             </div>
 
-        </section>
-
-
-        <!-- WTC / CV -->
-
-        <section class="about-lower">
 
             <div class="about-photo-secondary">
 
@@ -112,6 +106,12 @@
 
             </div>
 
+        </section>
+
+
+        <!-- CV -->
+
+        <section class="about-lower">
 
             <div class="cv-section">
 
@@ -130,7 +130,6 @@
                 </div>
 
 
-                <!-- PDF.js renders the PDF here -->
                 <div
                     id="cv-pages"
                     class="cv-pages"
@@ -151,8 +150,6 @@
     </footer>
 
 
-    <!-- PDF.js: renders PDF pages without browser toolbar -->
-
     <script type="module">
 
         import * as pdfjsLib
@@ -162,85 +159,50 @@
             "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.worker.min.mjs";
 
         const pdfURL = "files/charlie-waterman-cv.pdf";
-
         const container = document.getElementById("cv-pages");
 
         async function renderPDF() {
 
             try {
 
-                const pdf =
-                    await pdfjsLib.getDocument(pdfURL).promise;
-
+                const pdf = await pdfjsLib.getDocument(pdfURL).promise;
                 container.innerHTML = "";
 
-                for (
-                    let pageNumber = 1;
-                    pageNumber <= pdf.numPages;
-                    pageNumber++
-                ) {
+                for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
 
-                    const page =
-                        await pdf.getPage(pageNumber);
+                    const page = await pdf.getPage(pageNumber);
+                    const originalViewport = page.getViewport({ scale: 1 });
 
-                    const originalViewport =
-                        page.getViewport({ scale: 1 });
-
-                    /*
-                       Render at high resolution for sharp text.
-                    */
-
-                    const availableWidth =
-                        container.clientWidth - 36;
-
-                    const pixelRatio =
-                        window.devicePixelRatio || 1;
+                    const availableWidth = container.clientWidth - 36;
+                    const pixelRatio = window.devicePixelRatio || 1;
 
                     const scale =
-                        (availableWidth /
-                        originalViewport.width) *
-                        pixelRatio;
+                        (availableWidth / originalViewport.width) * pixelRatio;
 
-                    const viewport =
-                        page.getViewport({ scale });
+                    const viewport = page.getViewport({ scale });
 
-                    const canvas =
-                        document.createElement("canvas");
-
-                    const wrapper =
-                        document.createElement("div");
-
+                    const canvas = document.createElement("canvas");
+                    const wrapper = document.createElement("div");
                     wrapper.className = "cv-page";
 
-                    const context =
-                        canvas.getContext("2d");
+                    const context = canvas.getContext("2d");
 
-                    canvas.width =
-                        viewport.width;
+                    canvas.width = viewport.width;
+                    canvas.height = viewport.height;
 
-                    canvas.height =
-                        viewport.height;
-
-                    canvas.style.width =
-                        (viewport.width / pixelRatio) + "px";
-
-                    canvas.style.height =
-                        (viewport.height / pixelRatio) + "px";
+                    canvas.style.width = (viewport.width / pixelRatio) + "px";
+                    canvas.style.height = (viewport.height / pixelRatio) + "px";
 
                     wrapper.appendChild(canvas);
-
                     container.appendChild(wrapper);
 
                     await page.render({
                         canvasContext: context,
                         viewport: viewport
                     }).promise;
-
                 }
 
-            }
-
-            catch (error) {
+            } catch (error) {
 
                 console.error(error);
 
@@ -256,9 +218,7 @@
                         </a>
                     </div>
                 `;
-
             }
-
         }
 
         renderPDF();
