@@ -31,6 +31,15 @@ a {
 
 
 /* =================================
+   GLOBAL SPACING
+================================= */
+
+:root {
+    --photo-gap: 4.5vw;
+}
+
+
+/* =================================
    HEADER
 ================================= */
 
@@ -84,7 +93,7 @@ a {
     padding: 5vh 3.5vw 7vh;
     display: grid;
     grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
-    column-gap: 4.5vw;
+    column-gap: var(--photo-gap);
     align-items: start;
     overflow: visible;
 }
@@ -128,7 +137,7 @@ a {
 
 /* =================================
    MUSIC PHOTO
-   (unchanged)
+   (kept as-is)
 ================================= */
 
 .music-photo {
@@ -174,8 +183,13 @@ a {
 
 .architecture-photo {
     width: 138%;
-    margin-top: 8vh;
-    transform: translateX(-42%);
+
+    /* Match vertical gap to horizontal photo gap */
+    margin-top: var(--photo-gap);
+
+    /* Slightly farther left than before */
+    transform: translateX(-46%);
+
     position: relative;
     z-index: 2;
 }
@@ -234,6 +248,10 @@ footer {
 ================================= */
 
 @media (max-width: 700px) {
+
+    :root {
+        --photo-gap: 4vw;
+    }
 
     .site-header {
         padding: 20px;
@@ -296,8 +314,8 @@ footer {
 
     .architecture-photo {
         width: 98%;
-        margin-top: 6vh;
-        transform: translateX(-4%);
+        margin-top: var(--photo-gap);
+        transform: translateX(-8%);
     }
 
     .architecture-photo img {
