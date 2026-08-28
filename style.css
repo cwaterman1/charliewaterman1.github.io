@@ -15,7 +15,9 @@ html {
 body {
     background: #f7f7f4;
     color: #111111;
-    font-family: "Times New Roman", Times, serif;
+
+    font-family: "EB Garamond", "Times New Roman", Times, serif;
+
     line-height: 1.2;
 }
 
@@ -35,31 +37,45 @@ a {
 ================================= */
 
 .site-header {
-    position: relative;
-    z-index: 10;
-
     width: 100%;
 
-    padding: 25px 3.5vw;
+    padding: 24px 3.5vw;
 
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+
+    position: relative;
+    z-index: 20;
 }
 
 .site-name {
-    font-size: 1rem;
-    letter-spacing: -0.02em;
+    font-size: 1.15rem;
+
+    letter-spacing: 0.025em;
+}
+
+.header-right {
+    display: flex;
+    align-items: baseline;
+
+    gap: 3rem;
+}
+
+.location,
+.navigation {
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 0.66rem;
+
+    letter-spacing: 0.08em;
+
+    text-transform: lowercase;
 }
 
 .navigation {
     display: flex;
-    gap: 2rem;
-
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.68rem;
-    letter-spacing: 0.08em;
-    text-transform: lowercase;
+    gap: 1.8rem;
 }
 
 .navigation a {
@@ -78,96 +94,118 @@ a {
 .hero {
     position: relative;
 
-    min-height: 88vh;
+    min-height: 82vh;
 
-    padding: 5vh 3.5vw 12vh;
+    padding: 10vh 3.5vw 15vh;
 }
 
 .hero-title {
     position: relative;
-    z-index: 3;
+    z-index: 5;
 
-    width: 70%;
-
-    padding-top: 5vh;
+    width: 100%;
 }
 
 .hero-title h1 {
-    font-size: clamp(5.5rem, 14vw, 13rem);
-    font-weight: normal;
-    line-height: 0.73;
-    letter-spacing: -0.075em;
+    font-size: clamp(5rem, 11vw, 12rem);
+
+    font-weight: 400;
+
+    line-height: 0.88;
+
+    letter-spacing: 0.015em;
 }
 
 .hero-title p {
-    margin-top: 5vh;
-    margin-left: 0.5vw;
+    margin-top: 4vh;
+
+    margin-left: 0.4vw;
 
     font-family: Arial, Helvetica, sans-serif;
-    font-size: clamp(0.65rem, 1vw, 0.85rem);
-    letter-spacing: 0.08em;
+
+    font-size: clamp(0.8rem, 1.15vw, 1rem);
+
+    letter-spacing: 0.075em;
+
     text-transform: lowercase;
 }
 
 
 /* =================================
-   FIRST PHOTOGRAPH
+   CANDID PHOTO
 ================================= */
 
 .hero-image-one {
-    position: absolute;
+    width: min(48vw, 720px);
+
+    margin-top: 12vh;
+
+    margin-left: auto;
+    margin-right: 7vw;
+
+    position: relative;
 
     z-index: 2;
-
-    width: min(47vw, 700px);
-
-    top: 25vh;
-    right: 8vw;
 }
 
 .hero-image-one img {
     aspect-ratio: 3 / 2;
+
     object-fit: cover;
 }
 
 
 /* =================================
-   SECOND IMAGE
+   WTC
 ================================= */
 
-.image-interlude {
-    position: relative;
+.wtc-section {
+    min-height: 105vh;
 
-    min-height: 95vh;
+    position: relative;
 
     padding: 5vh 3.5vw 15vh;
 }
 
-.hero-image-two {
-    width: min(68vw, 1000px);
+.wtc-image {
+    width: min(39vw, 570px);
 
-    margin-left: 7vw;
+    margin-left: 48vw;
+
+    position: relative;
 }
 
-.hero-image-two img {
-    aspect-ratio: 3 / 2;
+.wtc-image img {
+    aspect-ratio: 4 / 5;
+
     object-fit: cover;
+
+    object-position: 78% center;
 }
 
-.image-caption {
-    position: absolute;
 
-    left: 3.5vw;
-    top: 18vh;
+/* =================================
+   ARCHITECTURE
+================================= */
 
-    writing-mode: vertical-rl;
+.architecture-section {
+    min-height: 100vh;
 
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
-    text-transform: lowercase;
+    padding: 5vh 3.5vw 15vh;
 
-    color: #333333;
+    position: relative;
+}
+
+.architecture-image {
+    width: min(67vw, 1000px);
+
+    margin-left: 8vw;
+}
+
+.architecture-image img {
+    aspect-ratio: 3 / 2;
+
+    object-fit: cover;
 }
 
 
@@ -189,8 +227,10 @@ a {
     border-bottom: 1px solid #c8c8c3;
 
     font-size: clamp(3.5rem, 8vw, 8rem);
+
     line-height: 0.9;
-    letter-spacing: -0.055em;
+
+    letter-spacing: -0.025em;
 
     transition:
         padding-left 0.35s ease,
@@ -212,11 +252,15 @@ footer {
     padding: 20px 3.5vw 28px;
 
     display: flex;
+
     justify-content: space-between;
 
     font-family: Arial, Helvetica, sans-serif;
+
     font-size: 0.62rem;
+
     letter-spacing: 0.08em;
+
     text-transform: lowercase;
 
     color: #555555;
@@ -230,77 +274,109 @@ footer {
 @media (max-width: 700px) {
 
     .site-header {
-        padding: 22px 20px;
+        padding: 20px;
 
         align-items: flex-start;
+    }
+
+    .site-name {
+        font-size: 1rem;
+    }
+
+    .header-right {
+        gap: 1rem;
+
+        align-items: flex-end;
+
+        flex-direction: column;
     }
 
     .navigation {
         gap: 1rem;
 
         flex-wrap: wrap;
+
         justify-content: flex-end;
     }
 
+    .location {
+        display: none;
+    }
+
+
+    /* HERO */
 
     .hero {
         min-height: auto;
 
-        padding: 7vh 20px 15vh;
-    }
-
-    .hero-title {
-        width: 100%;
-        padding-top: 0;
+        padding: 10vh 20px 15vh;
     }
 
     .hero-title h1 {
-        font-size: 22vw;
-        line-height: 0.78;
+        font-size: 19vw;
+
+        line-height: 0.9;
     }
 
     .hero-title p {
-        margin-top: 6vh;
-        margin-left: 1vw;
+        margin-top: 5vh;
+
+        font-size: 0.72rem;
+
+        line-height: 1.4;
     }
 
+
+    /* CANDID */
 
     .hero-image-one {
-        position: relative;
-
-        top: auto;
-        right: auto;
-
-        width: 82vw;
+        width: 84vw;
 
         margin-top: 9vh;
-        margin-left: auto;
+
+        margin-right: 0;
     }
 
 
-    .image-interlude {
+    /* WTC */
+
+    .wtc-section {
         min-height: auto;
 
         padding: 0 20px 15vh;
     }
 
-    .hero-image-two {
-        width: 88vw;
-        margin-left: 5vw;
+    .wtc-image {
+        width: 65vw;
+
+        margin-left: 29vw;
     }
 
-    .image-caption {
-        display: none;
+
+    /* ARCHITECTURE */
+
+    .architecture-section {
+        min-height: auto;
+
+        padding: 0 20px 15vh;
     }
 
+    .architecture-image {
+        width: 89vw;
+
+        margin-left: 4vw;
+    }
+
+
+    /* LINKS */
 
     .home-links {
-        padding: 2vh 20px 12vh;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     .large-link {
-        font-size: 16vw;
-        padding: 3vh 0;
+        font-size: 17vw;
     }
 
     .large-link:hover {
@@ -308,8 +384,15 @@ footer {
     }
 
 
+    /* FOOTER */
+
     footer {
         padding-left: 20px;
         padding-right: 20px;
+
+        gap: 1rem;
+
+        flex-wrap: wrap;
     }
+
 }
