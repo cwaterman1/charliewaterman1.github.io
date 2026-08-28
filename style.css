@@ -91,28 +91,34 @@ a {
 
 
 /* =================================
-   MAIN PHOTO GRID
+   MAIN VISUAL GRID
 ================================= */
 
-.hero-grid {
+.visual-grid {
     padding: 5vh 3.5vw 7vh;
 
     display: grid;
 
+    /*
+       Slightly wider left column so the name
+       and music image both have room.
+    */
     grid-template-columns:
-        minmax(0, 1fr)
-        minmax(0, 1fr);
+        minmax(0, 1.12fr)
+        minmax(0, 0.88fr);
 
-    grid-template-areas:
-        "title candid"
-        "music candid"
-        "music architecture";
-
-    column-gap: 3vw;
-
-    row-gap: 2.2vh;
+    column-gap: 4.5vw;
 
     align-items: start;
+}
+
+
+/* =================================
+   LEFT COLUMN
+================================= */
+
+.left-column {
+    width: 100%;
 }
 
 
@@ -121,13 +127,7 @@ a {
 ================================= */
 
 .hero-title {
-    grid-area: title;
-
     padding-top: 2vh;
-
-    position: relative;
-
-    z-index: 2;
 }
 
 .hero-title h1 {
@@ -160,21 +160,41 @@ a {
 ================================= */
 
 .music-photo {
-    grid-area: music;
-
     width: 100%;
 
-    margin-top: 2vh;
-
-    justify-self: start;
+    margin-top: 7vh;
 }
 
 .music-photo img {
     width: 100%;
 
-    height: auto;
+    /*
+       Wider frame than the original photograph.
+       This crops a little vertically.
+    */
+    aspect-ratio: 1.55 / 1;
 
-    object-fit: contain;
+    object-fit: cover;
+
+    /*
+       Favor the upper part of the photo,
+       so most cropping happens toward the bottom.
+    */
+    object-position: center 35%;
+}
+
+
+/* =================================
+   RIGHT COLUMN
+================================= */
+
+.right-column {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-end;
 }
 
 
@@ -183,15 +203,11 @@ a {
 ================================= */
 
 .candid-photo {
-    grid-area: candid;
+    width: 78%;
 
-    width: 84%;
+    height: 72vh;
 
-    height: 76vh;
-
-    min-height: 620px;
-
-    justify-self: end;
+    min-height: 590px;
 }
 
 .candid-photo img {
@@ -210,15 +226,19 @@ a {
 ================================= */
 
 .architecture-photo {
-    grid-area: architecture;
+    /*
+       Wider than the candid image,
+       so its left edge reaches farther left.
+    */
+    width: 108%;
 
-    width: 118%;
+    margin-top: 3vh;
 
-    justify-self: start;
-
-    margin-top: 0.5vh;
-
-    transform: translateX(-24%);
+    /*
+       Shift left slightly, but the separate
+       column structure prevents overlap.
+    */
+    transform: translateX(-8%);
 }
 
 .architecture-photo img {
@@ -228,6 +248,10 @@ a {
 
     object-fit: cover;
 
+    /*
+       Preserve more of the top/middle
+       while trimming some of the bottom.
+    */
     object-position: center 35%;
 }
 
@@ -315,25 +339,22 @@ footer {
     }
 
 
-    /* HERO GRID */
+    /* MAIN GRID */
 
-    .hero-grid {
+    .visual-grid {
         padding: 7vh 20px 9vh;
 
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
 
-        grid-template-areas:
-            "title title"
-            "music candid"
-            ". architecture";
-
-        column-gap: 4vw;
-
-        row-gap: 3vh;
+        row-gap: 6vh;
     }
 
 
     /* TITLE */
+
+    .hero-title {
+        padding-top: 0;
+    }
 
     .hero-title h1 {
         font-size: 16.5vw;
@@ -353,41 +374,42 @@ footer {
     /* MUSIC */
 
     .music-photo {
-        width: 100%;
+        margin-top: 6vh;
+    }
 
-        margin-top: 0;
+    .music-photo img {
+        aspect-ratio: 1.5 / 1;
 
-        justify-self: start;
+        object-position: center 35%;
+    }
+
+
+    /* RIGHT COLUMN */
+
+    .right-column {
+        align-items: flex-end;
     }
 
 
     /* CANDID */
 
     .candid-photo {
-        width: 88%;
+        width: 70%;
 
-        height: 74vw;
+        height: 90vw;
 
         min-height: 0;
-
-        justify-self: end;
-    }
-
-    .candid-photo img {
-        object-position: 64% center;
     }
 
 
     /* ARCHITECTURE */
 
     .architecture-photo {
-        width: 115%;
+        width: 92%;
 
-        margin-top: 0;
+        margin-top: 4vh;
 
-        justify-self: start;
-
-        transform: translateX(-20%);
+        transform: translateX(-5%);
     }
 
 
