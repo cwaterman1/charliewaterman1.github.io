@@ -45,19 +45,15 @@
 
     <main class="about-main">
 
-        <!-- BIO / FIRST PHOTO / WTC OVERLAP -->
-
         <section class="about-hero">
 
             <h1 class="about-title">about</h1>
 
             <div class="about-photo-primary">
-
                 <img
                     src="images/about-city-blur.jpg"
                     alt="New York City at night"
                 >
-
             </div>
 
 
@@ -98,18 +94,14 @@
 
 
             <div class="about-photo-secondary">
-
                 <img
                     src="images/about-wtc.jpg"
                     alt="New York City skyline and World Trade Center"
                 >
-
             </div>
 
         </section>
 
-
-        <!-- CV -->
 
         <section class="about-lower">
 
@@ -168,7 +160,11 @@
                 const pdf = await pdfjsLib.getDocument(pdfURL).promise;
                 container.innerHTML = "";
 
-                for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
+                for (
+                    let pageNumber = 1;
+                    pageNumber <= pdf.numPages;
+                    pageNumber++
+                ) {
 
                     const page = await pdf.getPage(pageNumber);
                     const originalViewport = page.getViewport({ scale: 1 });
@@ -177,12 +173,14 @@
                     const pixelRatio = window.devicePixelRatio || 1;
 
                     const scale =
-                        (availableWidth / originalViewport.width) * pixelRatio;
+                        (availableWidth / originalViewport.width) *
+                        pixelRatio;
 
                     const viewport = page.getViewport({ scale });
 
                     const canvas = document.createElement("canvas");
                     const wrapper = document.createElement("div");
+
                     wrapper.className = "cv-page";
 
                     const context = canvas.getContext("2d");
@@ -190,8 +188,11 @@
                     canvas.width = viewport.width;
                     canvas.height = viewport.height;
 
-                    canvas.style.width = (viewport.width / pixelRatio) + "px";
-                    canvas.style.height = (viewport.height / pixelRatio) + "px";
+                    canvas.style.width =
+                        (viewport.width / pixelRatio) + "px";
+
+                    canvas.style.height =
+                        (viewport.height / pixelRatio) + "px";
 
                     wrapper.appendChild(canvas);
                     container.appendChild(wrapper);
@@ -200,6 +201,7 @@
                         canvasContext: context,
                         viewport: viewport
                     }).promise;
+
                 }
 
             } catch (error) {
@@ -218,7 +220,9 @@
                         </a>
                     </div>
                 `;
+
             }
+
         }
 
         renderPDF();
