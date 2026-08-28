@@ -603,18 +603,13 @@ a {
 }
 
 .projects-header-note {
-    /*
-       More space between "projects" and
-       the selected-works subtitle.
-    */
-
-    margin-top: 6vh;
+    margin-top: 7vh;
 
     display: flex;
 
-    align-items: baseline;
-
     justify-content: flex-start;
+
+    align-items: baseline;
 
     gap: 1.5rem;
 
@@ -648,7 +643,24 @@ a {
 
 
 /* =================================
-   PROJECTS — TITLE
+   FEATURED PROJECT + VIDEO
+================================= */
+
+.project-featured-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.25fr)
+        minmax(320px, 0.75fr);
+
+    column-gap: 4vw;
+
+    align-items: center;
+}
+
+
+/* =================================
+   PROJECT TITLE
 ================================= */
 
 .project-main {
@@ -677,7 +689,7 @@ a {
 
 
 /* =================================
-   PROJECTS — META
+   PROJECT META
 ================================= */
 
 .project-meta {
@@ -699,17 +711,12 @@ a {
 
     text-transform: lowercase;
 
-    /*
-       Explicitly keep instrumentation,
-       duration and date upright.
-    */
-
     font-style: normal;
 }
 
 
 /* =================================
-   PROJECTS — DESCRIPTION
+   PROJECT DESCRIPTION
 ================================= */
 
 .project-description {
@@ -721,11 +728,6 @@ a {
 
     line-height: 1.38;
 
-    /*
-       Program/performance information:
-       lowercase and italic.
-    */
-
     font-style: italic;
 
     text-transform: lowercase;
@@ -735,7 +737,7 @@ a {
 
 
 /* =================================
-   PROJECTS — SCORE / AUDIO
+   PROJECT LINKS
 ================================= */
 
 .project-media {
@@ -776,6 +778,65 @@ a {
 }
 
 .project-link:hover {
+    color: #24364b;
+
+    transform: translateX(3px);
+}
+
+
+/* =================================
+   EMBEDDED YOUTUBE VIDEO
+================================= */
+
+.project-video-block {
+    width: 100%;
+
+    align-self: center;
+}
+
+.youtube-player {
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    background: #111111;
+
+    overflow: hidden;
+}
+
+.youtube-player iframe {
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    border: 0;
+}
+
+.video-caption {
+    display: inline-block;
+
+    margin-top: 1rem;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 0.72rem;
+
+    letter-spacing: 0.075em;
+
+    text-transform: lowercase;
+
+    border-bottom: 1px solid #111111;
+
+    padding-bottom: 3px;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.video-caption:hover {
     color: #24364b;
 
     transform: translateX(3px);
@@ -860,9 +921,7 @@ footer {
     }
 
 
-    /* =============================
-       HOMEPAGE
-    ============================== */
+    /* HOMEPAGE */
 
     .visual-grid {
         padding: 7vh 20px 9vh;
@@ -945,9 +1004,7 @@ footer {
     }
 
 
-    /* =============================
-       ABOUT
-    ============================== */
+    /* ABOUT */
 
     .about-main {
         padding: 5vh 20px 9vh;
@@ -1044,9 +1101,7 @@ footer {
     }
 
 
-    /* =============================
-       PROJECTS
-    ============================== */
+    /* PROJECTS */
 
     .projects-main {
         padding: 5vh 20px 10vh;
@@ -1065,7 +1120,7 @@ footer {
     }
 
     .projects-header-note {
-        margin-top: 5vh;
+        margin-top: 6vh;
 
         gap: 1rem;
 
@@ -1075,6 +1130,16 @@ footer {
     .project {
         padding: 5vh 0;
     }
+
+
+    /* FEATURED VIDEO MOVES BELOW TEXT */
+
+    .project-featured-layout {
+        grid-template-columns: 1fr;
+
+        row-gap: 4vh;
+    }
+
 
     .project-main h2 {
         max-width: none;
@@ -1109,6 +1174,10 @@ footer {
 
         gap: 1.4rem;
 
+        font-size: 0.67rem;
+    }
+
+    .video-caption {
         font-size: 0.67rem;
     }
 
