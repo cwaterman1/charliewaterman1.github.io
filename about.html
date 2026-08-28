@@ -45,17 +45,28 @@
 
     <main class="about-main">
 
+        <!-- =========================
+             ABOUT / BIO
+        ========================== -->
+
         <section class="about-hero">
 
             <h1 class="about-title">about</h1>
 
+
+            <!-- WTC BACKGROUND PHOTO -->
+
             <div class="about-photo-primary">
+
                 <img
-                    src="images/about-city-blur.jpg"
-                    alt="New York City at night"
+                    src="images/about-wtc.jpg"
+                    alt="New York City skyline and World Trade Center at dusk"
                 >
+
             </div>
 
+
+            <!-- BIO -->
 
             <div class="about-bio">
 
@@ -92,16 +103,12 @@
 
             </div>
 
-
-            <div class="about-photo-secondary">
-                <img
-                    src="images/about-wtc.jpg"
-                    alt="New York City skyline and World Trade Center"
-                >
-            </div>
-
         </section>
 
+
+        <!-- =========================
+             CV
+        ========================== -->
 
         <section class="about-lower">
 
@@ -142,6 +149,8 @@
     </footer>
 
 
+    <!-- PDF.JS -->
+
     <script type="module">
 
         import * as pdfjsLib
@@ -151,14 +160,20 @@
             "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.worker.min.mjs";
 
         const pdfURL = "files/charlie-waterman-cv.pdf";
-        const container = document.getElementById("cv-pages");
+
+        const container =
+            document.getElementById("cv-pages");
+
 
         async function renderPDF() {
 
             try {
 
-                const pdf = await pdfjsLib.getDocument(pdfURL).promise;
+                const pdf =
+                    await pdfjsLib.getDocument(pdfURL).promise;
+
                 container.innerHTML = "";
+
 
                 for (
                     let pageNumber = 1;
@@ -166,27 +181,46 @@
                     pageNumber++
                 ) {
 
-                    const page = await pdf.getPage(pageNumber);
-                    const originalViewport = page.getViewport({ scale: 1 });
+                    const page =
+                        await pdf.getPage(pageNumber);
 
-                    const availableWidth = container.clientWidth - 36;
-                    const pixelRatio = window.devicePixelRatio || 1;
+                    const originalViewport =
+                        page.getViewport({ scale: 1 });
+
+                    const availableWidth =
+                        container.clientWidth - 36;
+
+                    const pixelRatio =
+                        window.devicePixelRatio || 1;
 
                     const scale =
-                        (availableWidth / originalViewport.width) *
+                        (availableWidth /
+                        originalViewport.width) *
                         pixelRatio;
 
-                    const viewport = page.getViewport({ scale });
+                    const viewport =
+                        page.getViewport({ scale });
 
-                    const canvas = document.createElement("canvas");
-                    const wrapper = document.createElement("div");
+
+                    const canvas =
+                        document.createElement("canvas");
+
+                    const wrapper =
+                        document.createElement("div");
 
                     wrapper.className = "cv-page";
 
-                    const context = canvas.getContext("2d");
 
-                    canvas.width = viewport.width;
-                    canvas.height = viewport.height;
+                    const context =
+                        canvas.getContext("2d");
+
+
+                    canvas.width =
+                        viewport.width;
+
+                    canvas.height =
+                        viewport.height;
+
 
                     canvas.style.width =
                         (viewport.width / pixelRatio) + "px";
@@ -194,8 +228,11 @@
                     canvas.style.height =
                         (viewport.height / pixelRatio) + "px";
 
+
                     wrapper.appendChild(canvas);
+
                     container.appendChild(wrapper);
+
 
                     await page.render({
                         canvasContext: context,
@@ -204,13 +241,19 @@
 
                 }
 
-            } catch (error) {
+            }
+
+            catch (error) {
 
                 console.error(error);
 
                 container.innerHTML = `
                     <div class="cv-error">
-                        <p>the cv couldn't be displayed here.</p>
+
+                        <p>
+                            the cv couldn't be displayed here.
+                        </p>
+
                         <a
                             href="files/charlie-waterman-cv.pdf"
                             target="_blank"
@@ -218,12 +261,14 @@
                         >
                             open cv ↗
                         </a>
+
                     </div>
                 `;
 
             }
 
         }
+
 
         renderPDF();
 
