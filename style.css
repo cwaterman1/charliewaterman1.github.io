@@ -99,10 +99,6 @@ a {
 
     display: grid;
 
-    /*
-       Slightly wider left column so the name
-       and music image both have room.
-    */
     grid-template-columns:
         minmax(0, 1.12fr)
         minmax(0, 0.88fr);
@@ -110,6 +106,8 @@ a {
     column-gap: 4.5vw;
 
     align-items: start;
+
+    overflow: hidden;
 }
 
 
@@ -163,23 +161,19 @@ a {
     width: 100%;
 
     margin-top: 7vh;
+
+    position: relative;
+
+    z-index: 1;
 }
 
 .music-photo img {
     width: 100%;
 
-    /*
-       Wider frame than the original photograph.
-       This crops a little vertically.
-    */
     aspect-ratio: 1.55 / 1;
 
     object-fit: cover;
 
-    /*
-       Favor the upper part of the photo,
-       so most cropping happens toward the bottom.
-    */
     object-position: center 35%;
 }
 
@@ -194,7 +188,7 @@ a {
     display: flex;
     flex-direction: column;
 
-    align-items: flex-end;
+    align-items: flex-start;
 }
 
 
@@ -203,16 +197,25 @@ a {
 ================================= */
 
 .candid-photo {
-    width: 78%;
+    width: 79%;
 
-    height: 72vh;
+    height: 74vh;
 
-    min-height: 590px;
+    min-height: 600px;
+
+    /*
+       Move the entire portrait toward the left,
+       while leaving a clean gap from the music image.
+    */
+    transform: translateX(-7%);
+
+    position: relative;
+
+    z-index: 3;
 }
 
 .candid-photo img {
     width: 100%;
-
     height: 100%;
 
     object-fit: cover;
@@ -227,18 +230,24 @@ a {
 
 .architecture-photo {
     /*
-       Wider than the candid image,
-       so its left edge reaches farther left.
+       Larger than before.
     */
-    width: 108%;
-
-    margin-top: 3vh;
+    width: 122%;
 
     /*
-       Shift left slightly, but the separate
-       column structure prevents overlap.
+       Pull substantially toward the left.
     */
-    transform: translateX(-8%);
+    transform: translateX(-15%);
+
+    /*
+       Small negative margin lets it tuck slightly
+       underneath the bottom of the candid.
+    */
+    margin-top: -2.5vh;
+
+    position: relative;
+
+    z-index: 2;
 }
 
 .architecture-photo img {
@@ -248,10 +257,6 @@ a {
 
     object-fit: cover;
 
-    /*
-       Preserve more of the top/middle
-       while trimming some of the bottom.
-    */
     object-position: center 35%;
 }
 
@@ -347,6 +352,8 @@ footer {
         grid-template-columns: 1fr;
 
         row-gap: 6vh;
+
+        overflow: hidden;
     }
 
 
@@ -387,7 +394,7 @@ footer {
     /* RIGHT COLUMN */
 
     .right-column {
-        align-items: flex-end;
+        align-items: flex-start;
     }
 
 
@@ -399,17 +406,19 @@ footer {
         height: 90vw;
 
         min-height: 0;
+
+        transform: translateX(12%);
     }
 
 
     /* ARCHITECTURE */
 
     .architecture-photo {
-        width: 92%;
+        width: 98%;
 
-        margin-top: 4vh;
+        transform: translateX(-2%);
 
-        transform: translateX(-5%);
+        margin-top: -2vh;
     }
 
 
