@@ -1219,7 +1219,337 @@ footer {
         font-size: 10vw;
     }
 
+/* =================================
+   CONTACT — MAIN
+================================= */
 
+.contact-main {
+    padding: 3vh 5vw 12vh;
+}
+
+.contact-header,
+.contact-grid {
+    width: 100%;
+
+    max-width: 1220px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =================================
+   CONTACT — HEADER
+================================= */
+
+.contact-header {
+    padding-top: 2vh;
+
+    padding-bottom: 7vh;
+}
+
+.contact-header h1 {
+    font-size: clamp(5rem, 11vw, 11rem);
+
+    font-weight: 400;
+
+    line-height: 0.85;
+
+    letter-spacing: -0.03em;
+}
+
+.contact-header p {
+    margin-top: 6vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 0.78rem;
+
+    letter-spacing: 0.09em;
+
+    text-transform: lowercase;
+}
+
+
+/* =================================
+   CONTACT — GRID
+================================= */
+
+.contact-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.05fr)
+        minmax(320px, 0.95fr);
+
+    column-gap: 6vw;
+
+    align-items: start;
+
+    border-top: 1px solid #111111;
+
+    padding-top: 6vh;
+}
+
+
+/* =================================
+   CONTACT — PHOTOS
+================================= */
+
+.contact-images {
+    position: relative;
+
+    padding-bottom: 13vh;
+}
+
+.contact-photo-primary {
+    width: 100%;
+}
+
+.contact-photo-primary img {
+    width: 100%;
+
+    aspect-ratio: 1.45 / 1;
+
+    object-fit: cover;
+
+    object-position: center center;
+}
+
+.contact-photo-secondary {
+    width: 43%;
+
+    position: absolute;
+
+    right: -3vw;
+    bottom: 0;
+
+    z-index: 2;
+}
+
+.contact-photo-secondary img {
+    width: 100%;
+
+    aspect-ratio: 0.88 / 1;
+
+    object-fit: cover;
+
+    object-position: center center;
+}
+
+
+/* =================================
+   CONTACT — FORM AREA
+================================= */
+
+.contact-form-area {
+    padding-top: 1vh;
+}
+
+.contact-intro {
+    max-width: 520px;
+
+    margin-bottom: 6vh;
+
+    font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+
+    line-height: 1.12;
+
+    letter-spacing: -0.015em;
+}
+
+
+/* =================================
+   CONTACT — FORM
+================================= */
+
+.contact-form {
+    width: 100%;
+}
+
+.form-field {
+    margin-bottom: 3.5vh;
+}
+
+.form-field label {
+    display: block;
+
+    margin-bottom: 0.8rem;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 0.72rem;
+
+    letter-spacing: 0.09em;
+
+    text-transform: lowercase;
+}
+
+.form-field input,
+.form-field textarea {
+    display: block;
+
+    width: 100%;
+
+    padding: 0.7rem 0;
+
+    border: 0;
+
+    border-bottom: 1px solid #8f8f89;
+
+    border-radius: 0;
+
+    outline: none;
+
+    background: transparent;
+
+    color: #111111;
+
+    font-family: "EB Garamond", "Times New Roman", Times, serif;
+
+    font-size: 1.3rem;
+
+    line-height: 1.35;
+
+    resize: vertical;
+
+    transition: border-color 0.25s ease;
+}
+
+.form-field textarea {
+    min-height: 150px;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    border-bottom-color: #111111;
+}
+
+
+/* =================================
+   CONTACT — SEND BUTTON
+================================= */
+
+.contact-form button {
+    appearance: none;
+
+    border: 0;
+
+    border-bottom: 1px solid #111111;
+
+    padding: 0 0 4px;
+
+    background: transparent;
+
+    color: #111111;
+
+    cursor: pointer;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 0.78rem;
+
+    letter-spacing: 0.09em;
+
+    text-transform: lowercase;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.contact-form button:hover {
+    color: #24364b;
+
+    transform: translateX(3px);
+}
+
+
+/* =================================
+   CONTACT — SPAM TRAP
+================================= */
+
+.form-honeypot {
+    position: absolute;
+
+    left: -9999px;
+
+    width: 1px;
+
+    height: 1px;
+
+    opacity: 0;
+}
+
+
+/* =================================
+   CONTACT — MOBILE
+================================= */
+
+@media (max-width: 700px) {
+
+    .contact-main {
+        padding: 5vh 20px 10vh;
+    }
+
+    .contact-header {
+        padding-top: 0;
+
+        padding-bottom: 5vh;
+    }
+
+    .contact-header h1 {
+        font-size: 23vw;
+
+        line-height: 0.9;
+    }
+
+    .contact-header p {
+        margin-top: 5vh;
+
+        font-size: 0.68rem;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+
+        row-gap: 8vh;
+
+        padding-top: 5vh;
+    }
+
+    .contact-images {
+        padding-bottom: 10vh;
+    }
+
+    .contact-photo-primary img {
+        aspect-ratio: 1.35 / 1;
+    }
+
+    .contact-photo-secondary {
+        width: 42%;
+
+        right: 5%;
+
+        bottom: 0;
+    }
+
+    .contact-intro {
+        margin-bottom: 5vh;
+
+        font-size: 1.65rem;
+    }
+
+    .form-field {
+        margin-bottom: 3vh;
+    }
+
+    .form-field input,
+    .form-field textarea {
+        font-size: 1.15rem;
+    }
+
+}
     /* FOOTER */
 
     footer {
