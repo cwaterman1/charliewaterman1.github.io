@@ -1,6 +1,6 @@
-/* ------------------------------
-   GENERAL
------------------------------- */
+/* =================================
+   RESET
+================================= */
 
 * {
     margin: 0;
@@ -13,10 +13,15 @@ html {
 }
 
 body {
-    background: #f7f6f2;
-    color: #171717;
-    font-family: Georgia, "Times New Roman", serif;
-    line-height: 1.5;
+    background: #f7f7f4;
+    color: #111111;
+    font-family: "Times New Roman", Times, serif;
+    line-height: 1.2;
+}
+
+img {
+    display: block;
+    width: 100%;
 }
 
 a {
@@ -24,293 +29,287 @@ a {
     text-decoration: none;
 }
 
-a:hover {
-    opacity: 0.55;
-}
 
-
-/* ------------------------------
+/* =================================
    HEADER
------------------------------- */
+================================= */
 
 .site-header {
+    position: relative;
+    z-index: 10;
+
     width: 100%;
-    padding: 32px 5vw;
+
+    padding: 25px 3.5vw;
 
     display: flex;
     justify-content: space-between;
-    align-items: center;
-
-    border-bottom: 1px solid #d8d6d0;
+    align-items: baseline;
 }
 
-.logo {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.85rem;
-    font-weight: bold;
-    letter-spacing: 0.12em;
+.site-name {
+    font-size: 1rem;
+    letter-spacing: -0.02em;
 }
 
-nav {
+.navigation {
     display: flex;
-    gap: 30px;
+    gap: 2rem;
 
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
+}
+
+.navigation a {
+    transition: opacity 0.25s ease;
+}
+
+.navigation a:hover {
+    opacity: 0.45;
 }
 
 
-/* ------------------------------
+/* =================================
    HERO
------------------------------- */
+================================= */
 
 .hero {
-    min-height: 78vh;
+    position: relative;
 
-    padding: 12vh 5vw 10vh;
+    min-height: 88vh;
 
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 5vw;
-
-    align-items: start;
+    padding: 5vh 3.5vw 12vh;
 }
 
-.hero-small,
-.section-label {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #66645f;
+.hero-title {
+    position: relative;
+    z-index: 3;
+
+    width: 70%;
+
+    padding-top: 5vh;
 }
 
-.hero h1 {
-    font-size: clamp(5rem, 14vw, 13rem);
+.hero-title h1 {
+    font-size: clamp(5.5rem, 14vw, 13rem);
     font-weight: normal;
-    line-height: 0.78;
-    letter-spacing: -0.07em;
-
-    grid-column: 2;
+    line-height: 0.73;
+    letter-spacing: -0.075em;
 }
 
-.hero-description {
-    grid-column: 2;
-
-    max-width: 550px;
-
+.hero-title p {
     margin-top: 5vh;
-}
-
-.hero-description p {
-    font-size: clamp(1.1rem, 2vw, 1.5rem);
-}
-
-
-/* ------------------------------
-   FEATURED WORK
------------------------------- */
-
-.featured {
-    padding: 8vh 5vw 14vh;
-
-    border-top: 1px solid #d8d6d0;
-}
-
-.work {
-    margin-top: 7vh;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-
-    border-bottom: 1px solid #d8d6d0;
-
-    padding-bottom: 25px;
-}
-
-.work-title h2 {
-    font-size: clamp(3rem, 7vw, 7rem);
-    font-weight: normal;
-    line-height: 0.9;
-    letter-spacing: -0.05em;
-}
-
-.work-title p {
-    margin-top: 12px;
-    color: #66645f;
-    font-style: italic;
-}
-
-.work-info {
-    text-align: right;
+    margin-left: 0.5vw;
 
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-}
-
-.work-info p {
-    margin-bottom: 5px;
-}
-
-.work-info a {
-    display: block;
-    margin-top: 20px;
-
-    text-decoration: underline;
-}
-
-
-/* ------------------------------
-   ABOUT
------------------------------- */
-
-.about-preview {
-    padding: 8vh 5vw 14vh;
-
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 5vw;
-
-    border-top: 1px solid #d8d6d0;
-}
-
-.about-text {
-    max-width: 700px;
-}
-
-.about-text p {
-    font-size: clamp(1.5rem, 3vw, 2.8rem);
-    line-height: 1.15;
-    letter-spacing: -0.03em;
-}
-
-.about-text a {
-    display: inline-block;
-
-    margin-top: 35px;
-
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.75rem;
+    font-size: clamp(0.65rem, 1vw, 0.85rem);
     letter-spacing: 0.08em;
-    text-transform: uppercase;
-
-    text-decoration: underline;
+    text-transform: lowercase;
 }
 
 
-/* ------------------------------
-   CONTACT
------------------------------- */
+/* =================================
+   FIRST PHOTOGRAPH
+================================= */
 
-.contact-preview {
-    padding: 8vh 5vw 15vh;
+.hero-image-one {
+    position: absolute;
 
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 5vw;
+    z-index: 2;
 
-    border-top: 1px solid #d8d6d0;
+    width: min(47vw, 700px);
+
+    top: 25vh;
+    right: 8vw;
 }
 
-.email {
-    font-size: clamp(1.5rem, 4vw, 4rem);
-    letter-spacing: -0.04em;
+.hero-image-one img {
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
 }
 
 
-/* ------------------------------
+/* =================================
+   SECOND IMAGE
+================================= */
+
+.image-interlude {
+    position: relative;
+
+    min-height: 95vh;
+
+    padding: 5vh 3.5vw 15vh;
+}
+
+.hero-image-two {
+    width: min(68vw, 1000px);
+
+    margin-left: 7vw;
+}
+
+.hero-image-two img {
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+}
+
+.image-caption {
+    position: absolute;
+
+    left: 3.5vw;
+    top: 18vh;
+
+    writing-mode: vertical-rl;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: lowercase;
+
+    color: #333333;
+}
+
+
+/* =================================
+   HOME LINKS
+================================= */
+
+.home-links {
+    border-top: 1px solid #111111;
+
+    padding: 2vh 3.5vw 12vh;
+}
+
+.large-link {
+    display: block;
+
+    padding: 3vh 0;
+
+    border-bottom: 1px solid #c8c8c3;
+
+    font-size: clamp(3.5rem, 8vw, 8rem);
+    line-height: 0.9;
+    letter-spacing: -0.055em;
+
+    transition:
+        padding-left 0.35s ease,
+        opacity 0.35s ease;
+}
+
+.large-link:hover {
+    padding-left: 2vw;
+}
+
+
+/* =================================
    FOOTER
------------------------------- */
+================================= */
 
 footer {
-    padding: 25px 5vw 35px;
+    border-top: 1px solid #111111;
 
-    border-top: 1px solid #d8d6d0;
+    padding: 20px 3.5vw 28px;
 
     display: flex;
     justify-content: space-between;
 
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.62rem;
     letter-spacing: 0.08em;
-    text-transform: uppercase;
+    text-transform: lowercase;
 
-    color: #77746d;
+    color: #555555;
 }
 
 
-/* ------------------------------
+/* =================================
    MOBILE
------------------------------- */
+================================= */
 
 @media (max-width: 700px) {
 
     .site-header {
-        padding: 25px;
+        padding: 22px 20px;
+
         align-items: flex-start;
     }
 
-    nav {
-        gap: 15px;
+    .navigation {
+        gap: 1rem;
+
         flex-wrap: wrap;
         justify-content: flex-end;
     }
 
+
     .hero {
         min-height: auto;
 
-        padding: 12vh 25px 15vh;
-
-        display: block;
+        padding: 7vh 20px 15vh;
     }
 
-    .hero-small {
-        margin-bottom: 8vh;
+    .hero-title {
+        width: 100%;
+        padding-top: 0;
     }
 
-    .hero h1 {
-        font-size: 24vw;
+    .hero-title h1 {
+        font-size: 22vw;
+        line-height: 0.78;
     }
 
-    .hero-description {
-        margin-top: 8vh;
+    .hero-title p {
+        margin-top: 6vh;
+        margin-left: 1vw;
     }
 
-    .featured,
-    .about-preview,
-    .contact-preview {
-        padding-left: 25px;
-        padding-right: 25px;
+
+    .hero-image-one {
+        position: relative;
+
+        top: auto;
+        right: auto;
+
+        width: 82vw;
+
+        margin-top: 9vh;
+        margin-left: auto;
     }
 
-    .work {
-        display: block;
+
+    .image-interlude {
+        min-height: auto;
+
+        padding: 0 20px 15vh;
     }
 
-    .work-info {
-        margin-top: 30px;
-        text-align: left;
+    .hero-image-two {
+        width: 88vw;
+        margin-left: 5vw;
     }
 
-    .about-preview,
-    .contact-preview {
-        display: block;
+    .image-caption {
+        display: none;
     }
 
-    .about-text {
-        margin-top: 50px;
+
+    .home-links {
+        padding: 2vh 20px 12vh;
     }
 
-    .contact-preview > div:last-child {
-        margin-top: 50px;
+    .large-link {
+        font-size: 16vw;
+        padding: 3vh 0;
     }
+
+    .large-link:hover {
+        padding-left: 0;
+    }
+
 
     footer {
-        padding-left: 25px;
-        padding-right: 25px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }
