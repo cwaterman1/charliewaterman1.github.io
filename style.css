@@ -86,7 +86,7 @@ a {
 
 
 /* =================================
-   MAIN VISUAL GRID
+   HOMEPAGE — MAIN VISUAL GRID
 ================================= */
 
 .visual-grid {
@@ -120,7 +120,7 @@ a {
 
 
 /* =================================
-   TITLE
+   HOMEPAGE — TITLE
 ================================= */
 
 .hero-title {
@@ -153,7 +153,7 @@ a {
 
 
 /* =================================
-   MUSIC PHOTO
+   HOMEPAGE — MUSIC PHOTO
 ================================= */
 
 .music-photo {
@@ -178,7 +178,7 @@ a {
 
 
 /* =================================
-   CANDID PHOTO
+   HOMEPAGE — CANDID PHOTO
 ================================= */
 
 .candid-photo {
@@ -209,7 +209,7 @@ a {
 
 
 /* =================================
-   ARCHITECTURE PHOTO
+   HOMEPAGE — ARCHITECTURE PHOTO
 ================================= */
 
 .architecture-photo {
@@ -227,21 +227,16 @@ a {
 .architecture-photo img {
     width: 100%;
 
-    /* Slightly shorter frame = more bottom crop */
     aspect-ratio: 1.78 / 1;
 
     object-fit: cover;
 
-    /*
-       Favor the upper portion so the crop
-       comes mainly from the bottom.
-    */
     object-position: center 27%;
 }
 
 
 /* =================================
-   HOME LINKS
+   HOMEPAGE — LINKS
 ================================= */
 
 .home-links {
@@ -270,6 +265,259 @@ a {
 
 .large-link:hover {
     padding-left: 2vw;
+}
+
+
+/* =================================
+   ABOUT PAGE — MAIN
+================================= */
+
+.about-main {
+    padding: 3vh 3.5vw 10vh;
+}
+
+
+/* =================================
+   ABOUT PAGE — HERO
+================================= */
+
+.about-hero {
+    position: relative;
+
+    min-height: 112vh;
+}
+
+.about-title {
+    position: relative;
+
+    z-index: 4;
+
+    font-size: clamp(5rem, 11vw, 11rem);
+
+    font-weight: 400;
+
+    line-height: 0.85;
+
+    letter-spacing: -0.025em;
+
+    margin-bottom: 5vh;
+}
+
+
+/* =================================
+   ABOUT PAGE — FIRST PHOTO
+================================= */
+
+.about-photo-primary {
+    position: absolute;
+
+    top: 14vh;
+    right: 0;
+
+    width: 73%;
+
+    height: 78vh;
+
+    overflow: hidden;
+}
+
+.about-photo-primary img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center center;
+}
+
+
+/*
+   Pale wash over the left part of the image.
+
+   This lets the biography cross in front of
+   the photograph without becoming hard to read.
+*/
+
+.about-photo-primary::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(247, 247, 244, 0.96) 0%,
+            rgba(247, 247, 244, 0.82) 25%,
+            rgba(247, 247, 244, 0.48) 52%,
+            rgba(247, 247, 244, 0.08) 100%
+        );
+}
+
+
+/* =================================
+   ABOUT PAGE — BIO
+================================= */
+
+.about-bio {
+    position: relative;
+
+    z-index: 5;
+
+    width: min(760px, 57vw);
+
+    margin-top: 13vh;
+
+    margin-left: 2vw;
+}
+
+.about-bio p {
+    font-size: clamp(1.25rem, 1.8vw, 1.65rem);
+
+    line-height: 1.35;
+}
+
+.about-bio .about-intro {
+    font-size: clamp(1.8rem, 2.8vw, 2.75rem);
+
+    line-height: 1.12;
+
+    letter-spacing: -0.018em;
+
+    margin-bottom: 4vh;
+}
+
+.cv-link {
+    display: inline-block;
+
+    margin-top: 4vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 0.9rem;
+
+    letter-spacing: 0.08em;
+
+    text-transform: lowercase;
+
+    border-bottom: 1px solid #111111;
+
+    padding-bottom: 3px;
+
+    transition:
+        color 0.25s ease,
+        opacity 0.25s ease;
+}
+
+.cv-link:hover {
+    color: #24364b;
+}
+
+
+/* =================================
+   ABOUT PAGE — LOWER SECTION
+================================= */
+
+.about-lower {
+    position: relative;
+
+    padding-top: 4vh;
+
+    padding-bottom: 5vh;
+}
+
+
+/* =================================
+   ABOUT PAGE — SECOND PHOTO
+================================= */
+
+.about-photo-secondary {
+    width: 72%;
+
+    height: 48vh;
+
+    margin-left: auto;
+
+    overflow: hidden;
+}
+
+.about-photo-secondary img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center center;
+}
+
+
+/* =================================
+   ABOUT PAGE — CV
+================================= */
+
+.cv-section {
+    position: relative;
+
+    z-index: 4;
+
+    width: 74%;
+
+    margin-top: -8vh;
+
+    margin-left: 3vw;
+
+    background: #f7f7f4;
+
+    padding: 2.5vh 2vw 0;
+}
+
+.cv-heading {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: baseline;
+
+    margin-bottom: 2vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 0.82rem;
+
+    letter-spacing: 0.075em;
+
+    text-transform: lowercase;
+}
+
+.cv-heading a {
+    border-bottom: 1px solid #111111;
+
+    padding-bottom: 2px;
+
+    transition:
+        opacity 0.25s ease,
+        color 0.25s ease;
+}
+
+.cv-heading a:hover {
+    color: #24364b;
+}
+
+.cv-frame {
+    display: block;
+
+    width: 100%;
+
+    height: 680px;
+
+    border: 1px solid #bcbcb6;
+
+    background: #ffffff;
+}
+
+.cv-mobile {
+    display: none;
 }
 
 
@@ -304,6 +552,9 @@ footer {
         --photo-gap: 2.5vw;
     }
 
+
+    /* HEADER */
+
     .site-header {
         padding: 20px;
 
@@ -325,6 +576,11 @@ footer {
 
         justify-content: flex-end;
     }
+
+
+    /* =============================
+       HOMEPAGE
+    ============================== */
 
     .visual-grid {
         padding: 7vh 20px 9vh;
@@ -352,9 +608,6 @@ footer {
         line-height: 1.4;
     }
 
-
-    /* MUSIC */
-
     .music-photo {
         margin-top: 6vh;
     }
@@ -364,9 +617,6 @@ footer {
 
         object-position: center 42%;
     }
-
-
-    /* CANDID */
 
     .right-column {
         align-items: flex-start;
@@ -384,9 +634,6 @@ footer {
         transform: translateX(12%);
     }
 
-
-    /* ARCHITECTURE */
-
     .architecture-photo {
         width: 98%;
 
@@ -401,9 +648,6 @@ footer {
         object-position: center 27%;
     }
 
-
-    /* LINKS */
-
     .home-links {
         padding-left: 20px;
 
@@ -416,6 +660,142 @@ footer {
 
     .large-link:hover {
         padding-left: 0;
+    }
+
+
+    /* =============================
+       ABOUT PAGE
+    ============================== */
+
+    .about-main {
+        padding: 5vh 20px 9vh;
+    }
+
+    .about-hero {
+        min-height: auto;
+    }
+
+    .about-title {
+        font-size: 24vw;
+
+        margin-bottom: 6vh;
+    }
+
+
+    /* FIRST PHOTO */
+
+    .about-photo-primary {
+        position: relative;
+
+        top: auto;
+        right: auto;
+
+        width: 100%;
+
+        height: 62vh;
+    }
+
+    .about-photo-primary::after {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(247, 247, 244, 0.05) 0%,
+                rgba(247, 247, 244, 0.20) 45%,
+                rgba(247, 247, 244, 0.90) 100%
+            );
+    }
+
+
+    /* BIO */
+
+    .about-bio {
+        width: 94%;
+
+        margin-top: -18vh;
+
+        margin-left: 3%;
+
+        padding: 22px;
+
+        background: rgba(247, 247, 244, 0.92);
+    }
+
+    .about-bio .about-intro {
+        font-size: 1.75rem;
+
+        line-height: 1.15;
+
+        margin-bottom: 3vh;
+    }
+
+    .about-bio p {
+        font-size: 1.12rem;
+
+        line-height: 1.4;
+    }
+
+    .cv-link {
+        margin-top: 3vh;
+    }
+
+
+    /* LOWER PHOTO */
+
+    .about-lower {
+        padding-top: 10vh;
+    }
+
+    .about-photo-secondary {
+        width: 100%;
+
+        height: 31vh;
+
+        margin-left: 0;
+    }
+
+
+    /* CV */
+
+    .cv-section {
+        width: 94%;
+
+        margin-top: -3vh;
+
+        margin-left: 3%;
+
+        padding: 22px;
+
+        background: #f7f7f4;
+    }
+
+    .cv-heading {
+        margin-bottom: 0;
+    }
+
+    .cv-frame {
+        display: none;
+    }
+
+    .cv-mobile {
+        display: block;
+
+        margin-top: 3vh;
+
+        font-family: Arial, Helvetica, sans-serif;
+
+        font-size: 0.8rem;
+
+        line-height: 1.5;
+
+        letter-spacing: 0.04em;
+    }
+
+    .cv-mobile a {
+        display: inline-block;
+
+        margin-top: 1.5vh;
+
+        border-bottom: 1px solid #111111;
     }
 
 
