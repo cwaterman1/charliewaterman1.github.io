@@ -95,13 +95,13 @@ a {
 ================================= */
 
 .hero-grid {
-    padding: 5vh 3.5vw 8vh;
+    padding: 5vh 3.5vw 7vh;
 
     display: grid;
 
     grid-template-columns:
-        minmax(0, 1.08fr)
-        minmax(0, 0.82fr);
+        minmax(0, 1fr)
+        minmax(0, 1fr);
 
     grid-template-areas:
         "title candid"
@@ -110,7 +110,7 @@ a {
 
     column-gap: 3vw;
 
-    row-gap: 2.5vh;
+    row-gap: 2.2vh;
 
     align-items: start;
 }
@@ -156,50 +156,52 @@ a {
 
 
 /* =================================
-   CANDID PHOTO
-================================= */
-
-.candid-photo {
-    grid-area: candid;
-
-    align-self: stretch;
-
-    height: 69vh;
-
-    min-height: 570px;
-}
-
-.candid-photo img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    /*
-      Bias crop toward the right side,
-      allowing some of the left side to disappear.
-    */
-    object-position: 62% center;
-}
-
-
-/* =================================
    MUSIC PHOTO
 ================================= */
 
 .music-photo {
     grid-area: music;
 
-    width: 92%;
+    width: 80%;
 
     margin-top: 2vh;
+
+    justify-self: start;
 }
 
 .music-photo img {
     width: 100%;
+
     height: auto;
 
     object-fit: contain;
+}
+
+
+/* =================================
+   CANDID PHOTO
+================================= */
+
+.candid-photo {
+    grid-area: candid;
+
+    width: 84%;
+
+    height: 76vh;
+
+    min-height: 620px;
+
+    justify-self: end;
+}
+
+.candid-photo img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: 64% center;
 }
 
 
@@ -210,24 +212,23 @@ a {
 .architecture-photo {
     grid-area: architecture;
 
-    width: 92%;
+    width: 118%;
 
     justify-self: end;
 
     margin-top: 0.5vh;
+
+    transform: translateX(-10%);
 }
 
 .architecture-photo img {
     width: 100%;
 
-    aspect-ratio: 16 / 8.5;
+    aspect-ratio: 16 / 9;
 
     object-fit: cover;
 
-    /*
-      Crop a little from the bottom.
-    */
-    object-position: center 38%;
+    object-position: center 35%;
 }
 
 
@@ -314,6 +315,8 @@ footer {
     }
 
 
+    /* HERO GRID */
+
     .hero-grid {
         padding: 7vh 20px 9vh;
 
@@ -330,6 +333,8 @@ footer {
     }
 
 
+    /* TITLE */
+
     .hero-title h1 {
         font-size: 16.5vw;
 
@@ -345,33 +350,52 @@ footer {
     }
 
 
+    /* MUSIC */
+
+    .music-photo {
+        width: 90%;
+
+        margin-top: 0;
+
+        justify-self: start;
+    }
+
+
+    /* CANDID */
+
     .candid-photo {
-        height: 70vw;
+        width: 88%;
+
+        height: 74vw;
 
         min-height: 0;
+
+        justify-self: end;
     }
 
     .candid-photo img {
-        object-position: 62% center;
+        object-position: 64% center;
     }
 
 
-    .music-photo {
-        width: 100%;
-
-        margin-top: 0;
-    }
-
+    /* ARCHITECTURE */
 
     .architecture-photo {
-        width: 100%;
+        width: 115%;
 
         margin-top: 0;
+
+        justify-self: end;
+
+        transform: translateX(-8%);
     }
 
+
+    /* LINKS */
 
     .home-links {
         padding-left: 20px;
+
         padding-right: 20px;
     }
 
@@ -384,8 +408,11 @@ footer {
     }
 
 
+    /* FOOTER */
+
     footer {
         padding-left: 20px;
+
         padding-right: 20px;
 
         font-size: 0.7rem;
