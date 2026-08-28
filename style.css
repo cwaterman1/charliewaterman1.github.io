@@ -15,9 +15,7 @@ html {
 body {
     background: #f7f7f4;
     color: #111111;
-
     font-family: "EB Garamond", "Times New Roman", Times, serif;
-
     line-height: 1.2;
 }
 
@@ -38,7 +36,6 @@ a {
 
 .site-header {
     width: 100%;
-
     padding: 24px 3.5vw;
 
     display: flex;
@@ -49,33 +46,37 @@ a {
     z-index: 20;
 }
 
-.site-name {
-    font-size: 1.15rem;
-
-    letter-spacing: 0.025em;
-}
-
-.header-right {
+.site-heading {
     display: flex;
     align-items: baseline;
+    gap: 0.45rem;
 
-    gap: 3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
 }
 
-.location,
-.navigation {
-    font-family: Arial, Helvetica, sans-serif;
+.site-heading a {
+    transition: opacity 0.25s ease;
+}
 
-    font-size: 0.66rem;
+.site-heading a:hover {
+    opacity: 0.45;
+}
 
-    letter-spacing: 0.08em;
-
-    text-transform: lowercase;
+.separator {
+    opacity: 0.5;
 }
 
 .navigation {
     display: flex;
     gap: 1.8rem;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
 }
 
 .navigation a {
@@ -92,40 +93,33 @@ a {
 ================================= */
 
 .hero {
-    position: relative;
-
-    min-height: 82vh;
-
-    padding: 10vh 3.5vw 15vh;
+    padding: 8vh 3.5vw 9vh;
 }
 
 .hero-title {
-    position: relative;
-    z-index: 5;
-
     width: 100%;
 }
 
 .hero-title h1 {
-    font-size: clamp(5rem, 11vw, 12rem);
+    font-size: clamp(5rem, 10.5vw, 11rem);
 
     font-weight: 400;
 
-    line-height: 0.88;
+    line-height: 0.9;
 
-    letter-spacing: 0.015em;
+    /* Reduced from the previous version */
+    letter-spacing: -0.005em;
 }
 
 .hero-title p {
-    margin-top: 4vh;
-
-    margin-left: 0.4vw;
+    margin-top: 3.5vh;
+    margin-left: 0.3vw;
 
     font-family: Arial, Helvetica, sans-serif;
 
-    font-size: clamp(0.8rem, 1.15vw, 1rem);
+    font-size: clamp(1rem, 1.35vw, 1.25rem);
 
-    letter-spacing: 0.075em;
+    letter-spacing: 0.055em;
 
     text-transform: lowercase;
 }
@@ -138,49 +132,15 @@ a {
 .hero-image-one {
     width: min(48vw, 720px);
 
-    margin-top: 12vh;
+    margin-top: 8vh;
 
     margin-left: auto;
     margin-right: 7vw;
-
-    position: relative;
-
-    z-index: 2;
 }
 
 .hero-image-one img {
     aspect-ratio: 3 / 2;
-
     object-fit: cover;
-}
-
-
-/* =================================
-   WTC
-================================= */
-
-.wtc-section {
-    min-height: 105vh;
-
-    position: relative;
-
-    padding: 5vh 3.5vw 15vh;
-}
-
-.wtc-image {
-    width: min(39vw, 570px);
-
-    margin-left: 48vw;
-
-    position: relative;
-}
-
-.wtc-image img {
-    aspect-ratio: 4 / 5;
-
-    object-fit: cover;
-
-    object-position: 78% center;
 }
 
 
@@ -189,11 +149,7 @@ a {
 ================================= */
 
 .architecture-section {
-    min-height: 100vh;
-
-    padding: 5vh 3.5vw 15vh;
-
-    position: relative;
+    padding: 2vh 3.5vw 10vh;
 }
 
 .architecture-image {
@@ -204,7 +160,6 @@ a {
 
 .architecture-image img {
     aspect-ratio: 3 / 2;
-
     object-fit: cover;
 }
 
@@ -216,13 +171,13 @@ a {
 .home-links {
     border-top: 1px solid #111111;
 
-    padding: 2vh 3.5vw 12vh;
+    padding: 1vh 3.5vw 9vh;
 }
 
 .large-link {
     display: block;
 
-    padding: 3vh 0;
+    padding: 2.5vh 0;
 
     border-bottom: 1px solid #c8c8c3;
 
@@ -249,15 +204,11 @@ a {
 footer {
     border-top: 1px solid #111111;
 
-    padding: 20px 3.5vw 28px;
-
-    display: flex;
-
-    justify-content: space-between;
+    padding: 24px 3.5vw 32px;
 
     font-family: Arial, Helvetica, sans-serif;
 
-    font-size: 0.62rem;
+    font-size: 0.75rem;
 
     letter-spacing: 0.08em;
 
@@ -279,16 +230,10 @@ footer {
         align-items: flex-start;
     }
 
-    .site-name {
-        font-size: 1rem;
-    }
+    .site-heading {
+        font-size: 0.62rem;
 
-    .header-right {
-        gap: 1rem;
-
-        align-items: flex-end;
-
-        flex-direction: column;
+        gap: 0.3rem;
     }
 
     .navigation {
@@ -299,29 +244,22 @@ footer {
         justify-content: flex-end;
     }
 
-    .location {
-        display: none;
-    }
-
 
     /* HERO */
 
     .hero {
-        min-height: auto;
-
-        padding: 10vh 20px 15vh;
+        padding: 8vh 20px 10vh;
     }
 
     .hero-title h1 {
-        font-size: 19vw;
-
+        font-size: 18vw;
         line-height: 0.9;
     }
 
     .hero-title p {
-        margin-top: 5vh;
+        margin-top: 4vh;
 
-        font-size: 0.72rem;
+        font-size: 0.82rem;
 
         line-height: 1.4;
     }
@@ -332,33 +270,16 @@ footer {
     .hero-image-one {
         width: 84vw;
 
-        margin-top: 9vh;
+        margin-top: 8vh;
 
         margin-right: 0;
-    }
-
-
-    /* WTC */
-
-    .wtc-section {
-        min-height: auto;
-
-        padding: 0 20px 15vh;
-    }
-
-    .wtc-image {
-        width: 65vw;
-
-        margin-left: 29vw;
     }
 
 
     /* ARCHITECTURE */
 
     .architecture-section {
-        min-height: auto;
-
-        padding: 0 20px 15vh;
+        padding: 0 20px 10vh;
     }
 
     .architecture-image {
@@ -390,9 +311,7 @@ footer {
         padding-left: 20px;
         padding-right: 20px;
 
-        gap: 1rem;
-
-        flex-wrap: wrap;
+        font-size: 0.68rem;
     }
 
 }
