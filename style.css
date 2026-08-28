@@ -55,15 +55,11 @@ a {
 .site-heading {
     display: flex;
     align-items: baseline;
-
     gap: 0.55rem;
 
     font-family: Arial, Helvetica, sans-serif;
-
     font-size: 0.94rem;
-
     letter-spacing: 0.075em;
-
     text-transform: lowercase;
 }
 
@@ -73,15 +69,11 @@ a {
 
 .navigation {
     display: flex;
-
     gap: 1.9rem;
 
     font-family: Arial, Helvetica, sans-serif;
-
     font-size: 0.94rem;
-
     letter-spacing: 0.075em;
-
     text-transform: lowercase;
 }
 
@@ -140,13 +132,9 @@ a {
 
 .hero-title h1 {
     font-size: clamp(4rem, 7.7vw, 8.3rem);
-
     font-weight: 400;
-
     line-height: 0.92;
-
     letter-spacing: -0.01em;
-
     white-space: nowrap;
 }
 
@@ -154,11 +142,8 @@ a {
     margin-top: 3vh;
 
     font-family: Arial, Helvetica, sans-serif;
-
     font-size: clamp(1.08rem, 1.45vw, 1.35rem);
-
     letter-spacing: 0.05em;
-
     text-transform: lowercase;
 }
 
@@ -169,21 +154,16 @@ a {
 
 .music-photo {
     width: 100%;
-
     margin-top: 6.5vh;
 
     position: relative;
-
     z-index: 1;
 }
 
 .music-photo img {
     width: 100%;
-
     aspect-ratio: 1.62 / 1;
-
     object-fit: cover;
-
     object-position: center 42%;
 }
 
@@ -194,27 +174,20 @@ a {
 
 .candid-photo {
     width: 96%;
-
     height: 69vh;
-
     min-height: 565px;
-
     margin-top: 2vh;
 
     transform: translateX(0);
 
     position: relative;
-
     z-index: 3;
 }
 
 .candid-photo img {
     width: 100%;
-
     height: 100%;
-
     object-fit: cover;
-
     object-position: 64% center;
 }
 
@@ -231,17 +204,13 @@ a {
     transform: translateX(-46%);
 
     position: relative;
-
     z-index: 2;
 }
 
 .architecture-photo img {
     width: 100%;
-
     aspect-ratio: 1.78 / 1;
-
     object-fit: cover;
-
     object-position: center 27%;
 }
 
@@ -252,7 +221,6 @@ a {
 
 .home-links {
     border-top: 1px solid #111111;
-
     padding: 1vh 3.5vw 9vh;
 }
 
@@ -264,9 +232,7 @@ a {
     border-bottom: 1px solid #c8c8c3;
 
     font-size: clamp(3.5rem, 8vw, 8rem);
-
     line-height: 0.9;
-
     letter-spacing: -0.025em;
 
     transition:
@@ -295,20 +261,16 @@ a {
 .about-hero {
     position: relative;
 
-    min-height: 125vh;
+    min-height: 123vh;
 }
 
 .about-title {
     position: relative;
-
     z-index: 5;
 
     font-size: clamp(5rem, 11vw, 11rem);
-
     font-weight: 400;
-
     line-height: 0.85;
-
     letter-spacing: -0.025em;
 
     margin-bottom: 5vh;
@@ -326,7 +288,6 @@ a {
     right: 0;
 
     width: 73%;
-
     height: 78vh;
 
     overflow: hidden;
@@ -337,7 +298,6 @@ a {
     height: 100%;
 
     object-fit: cover;
-
     object-position: center center;
 }
 
@@ -345,7 +305,6 @@ a {
     content: "";
 
     position: absolute;
-
     inset: 0;
 
     background:
@@ -365,25 +324,18 @@ a {
 
 .about-bio {
     position: relative;
-
     z-index: 6;
 
     width: min(760px, 57vw);
 
     margin-top: 13vh;
-
     margin-left: 2vw;
 
-    /*
-       Gives the WTC photo room to overlap
-       behind the lower portion of the text.
-    */
     padding-bottom: 19vh;
 }
 
 .about-bio p {
     font-size: clamp(1.25rem, 1.8vw, 1.65rem);
-
     line-height: 1.35;
 }
 
@@ -402,12 +354,13 @@ a {
 
     margin-top: 4vh;
 
+    position: relative;
+    z-index: 10;
+
     font-family: Arial, Helvetica, sans-serif;
 
     font-size: 0.9rem;
-
     letter-spacing: 0.08em;
-
     text-transform: lowercase;
 
     border-bottom: 1px solid #111111;
@@ -431,12 +384,19 @@ a {
 .about-photo-secondary {
     position: absolute;
 
-    left: 15%;
-    bottom: 4vh;
+    /*
+       Much farther left than before.
+    */
+    left: 3.5%;
 
-    width: 82%;
+    /*
+       Places the beginning of the image around
+       the lower lines of the biography.
+    */
+    top: 76vh;
 
-    height: 46vh;
+    width: 88%;
+    height: 48vh;
 
     overflow: hidden;
 
@@ -451,8 +411,15 @@ a {
 
     object-position: center center;
 
-    opacity: 0.92;
+    opacity: 0.94;
 }
+
+
+/*
+   The strongest fade sits over the upper-left
+   part of the image, where the end of the bio
+   and CV link overlap it.
+*/
 
 .about-photo-secondary::after {
     content: "";
@@ -461,17 +428,14 @@ a {
 
     inset: 0;
 
-    /*
-       Fade from the page background into the image
-       so text can sit over the top portion more easily.
-    */
     background:
         linear-gradient(
             180deg,
             rgba(247, 247, 244, 0.98) 0%,
-            rgba(247, 247, 244, 0.88) 16%,
-            rgba(247, 247, 244, 0.52) 34%,
-            rgba(247, 247, 244, 0.14) 58%,
+            rgba(247, 247, 244, 0.90) 12%,
+            rgba(247, 247, 244, 0.66) 27%,
+            rgba(247, 247, 244, 0.32) 46%,
+            rgba(247, 247, 244, 0.06) 68%,
             rgba(247, 247, 244, 0.00) 100%
         );
 }
@@ -485,7 +449,6 @@ a {
     position: relative;
 
     padding-top: 0;
-
     padding-bottom: 5vh;
 }
 
@@ -497,7 +460,6 @@ a {
     width: 78%;
 
     margin-top: -2vh;
-
     margin-left: 3vw;
 
     background: #f7f7f4;
@@ -507,9 +469,7 @@ a {
 
 .cv-heading {
     display: flex;
-
     justify-content: space-between;
-
     align-items: baseline;
 
     margin-bottom: 2vh;
@@ -517,9 +477,7 @@ a {
     font-family: Arial, Helvetica, sans-serif;
 
     font-size: 0.82rem;
-
     letter-spacing: 0.075em;
-
     text-transform: lowercase;
 }
 
@@ -544,11 +502,9 @@ a {
 
 .cv-pages {
     width: 100%;
-
     height: 720px;
 
     overflow-y: auto;
-
     overflow-x: hidden;
 
     padding: 18px;
@@ -564,7 +520,6 @@ a {
     width: 100%;
 
     display: flex;
-
     justify-content: center;
 
     margin-bottom: 18px;
@@ -736,7 +691,6 @@ footer {
 
     .home-links {
         padding-left: 20px;
-
         padding-right: 20px;
     }
 
@@ -772,7 +726,6 @@ footer {
         right: auto;
 
         width: 100%;
-
         height: 62vh;
     }
 
@@ -790,7 +743,6 @@ footer {
         width: 94%;
 
         margin-top: -18vh;
-
         margin-left: 3%;
 
         padding: 22px 22px 14vh;
@@ -816,14 +768,16 @@ footer {
         margin-top: 3vh;
     }
 
+
+    /* WTC */
+
     .about-photo-secondary {
         position: relative;
 
         left: auto;
-        bottom: auto;
+        top: auto;
 
         width: 100%;
-
         height: 34vh;
 
         margin-top: -9vh;
@@ -840,6 +794,9 @@ footer {
             );
     }
 
+
+    /* CV */
+
     .about-lower {
         padding-top: 4vh;
     }
@@ -848,7 +805,6 @@ footer {
         width: 94%;
 
         margin-top: -1vh;
-
         margin-left: 3%;
 
         padding: 22px;
@@ -871,7 +827,6 @@ footer {
 
     footer {
         padding-left: 20px;
-
         padding-right: 20px;
 
         font-size: 0.7rem;
