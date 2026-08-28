@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>contact — charlie waterman</title>
+
+    <meta
+        name="description"
+        content="Contact Charlie Waterman — composer, multi-instrumentalist, and arranger."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="contact-page">
+
+    <header class="site-header">
+
+        <div class="site-heading">
+            <a href="index.html">charlie waterman</a>
+            <span class="separator">|</span>
+            <span>new york city</span>
+        </div>
+
+        <nav class="navigation">
+            <a href="index.html">home</a>
+            <a href="about.html">about</a>
+            <a href="projects.html">projects</a>
+            <a href="contact.html">contact</a>
+        </nav>
+
+    </header>
+
+
+    <main class="contact-main">
+
+        <section class="contact-header">
+
+            <h1>contact</h1>
+
+            <p>
+                inquiries / collaborations / performances
+            </p>
+
+        </section>
+
+
+        <section class="contact-grid">
+
+            <div class="contact-images">
+
+                <div class="contact-photo-primary">
+                    <img
+                        src="images/contact-waterfront.jpg"
+                        alt="New York City waterfront at dusk"
+                    >
+                </div>
+
+                <div class="contact-photo-secondary">
+                    <img
+                        src="images/contact-subway.jpg"
+                        alt="New York City subway"
+                    >
+                </div>
+
+            </div>
+
+
+            <div class="contact-form-area">
+
+                <p class="contact-intro">
+                    for performance inquiries, collaborations,
+                    commissions, or anything else, send a message below
+                </p>
+
+
+                <form
+                    class="contact-form"
+                    action="https://formspree.io/f/YOUR-FORM-ID"
+                    method="POST"
+                >
+
+                    <div class="form-field">
+
+                        <label for="name">
+                            name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            required
+                            autocomplete="name"
+                        >
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="email">
+                            email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                            autocomplete="email"
+                        >
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="message">
+                            message
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="7"
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- simple spam trap -->
+
+                    <input
+                        class="form-honeypot"
+                        type="text"
+                        name="_gotcha"
+                        tabindex="-1"
+                        autocomplete="off"
+                    >
+
+
+                    <button type="submit">
+                        send message ↗
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <span>© 2026 3rd &amp; Mercer Editions</span>
+    </footer>
+
+</body>
+
+</html>
