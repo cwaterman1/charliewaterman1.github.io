@@ -1643,145 +1643,181 @@ footer {
    CONTACT — PHOTOS
 ================================= */
 
+/* =================================
+   CONTACT — PHOTO COLLAGE
+================================= */
+
 .contact-images {
-    --contact-gap: 1.2rem;
+    /*
+       One shared gap controls BOTH:
+       1. space below the tennis-court photo
+       2. space to the right of the subway photo
+    */
+    --contact-gap: 1.4rem;
 
     width: 100%;
     position: relative;
-    min-height: 780px;
+
+    /*
+       Gives the collage enough vertical room
+       without affecting the form column.
+    */
+    min-height: 700px;
 }
 
-/* tennis courts / waterfront */
+
+/* =================================
+   1. TENNIS COURTS / WATERFRONT
+   smaller primary image
+================================= */
+
 .contact-photo-primary {
-    width: 90%;
+    width: 88%;
+
     margin-left: auto;
+
     position: relative;
+
     z-index: 1;
 }
 
 .contact-photo-primary img {
     width: 100%;
-    height: 390px;
+
+    height: 385px;
+
     object-fit: cover;
+
     object-position: center 48%;
 }
 
-/* subway — still intersecting the tennis court photo */
+
+/* =================================
+   2. SUBWAY PHOTO
+   overlaps bottom-left of primary
+================================= */
+
 .contact-photo-secondary {
-    width: 42%;
+    width: 40%;
+
     position: absolute;
+
     left: 0;
-    top: 305px;
-    z-index: 2;
+
+    /*
+       Primary ends at 385px.
+       Starting at 300px creates an
+       85px overlap with the primary.
+    */
+    top: 300px;
+
+    z-index: 3;
 }
 
 .contact-photo-secondary img {
     width: 100%;
-    height: 285px;
-    object-fit: cover;
-    object-position: center center;
-}
 
-/* party photo — right of subway, below tennis courts, no touching */
-.contact-photo-tertiary {
-    width: 42%;
-    position: absolute;
-    left: calc(42% + var(--contact-gap));
-    top: calc(390px + var(--contact-gap));
-    z-index: 1;
-}
+    height: 280px;
 
-.contact-photo-tertiary img {
-    width: 100%;
-    height: 235px;
     object-fit: cover;
+
     object-position: center center;
 }
 
 
 /* =================================
-   CONTACT — MOBILE
+   3. PARTY PHOTO
+   right of subway + below primary
+================================= */
+
+.contact-photo-tertiary {
+    width: 42%;
+
+    position: absolute;
+
+    /*
+       The subway is 40% wide.
+       This places the party image exactly
+       one --contact-gap to its right.
+    */
+    left: calc(40% + var(--contact-gap));
+
+    /*
+       The primary image is 385px tall.
+       This places the party image exactly
+       one --contact-gap beneath it.
+    */
+    top: calc(385px + var(--contact-gap));
+
+    z-index: 2;
+}
+
+.contact-photo-tertiary img {
+    width: 100%;
+
+    height: 245px;
+
+    object-fit: cover;
+
+    object-position: center center;
+}
+
+
+/* =================================
+   CONTACT PHOTO COLLAGE — MOBILE
 ================================= */
 
 @media (max-width: 700px) {
 
-    .contact-main {
-        padding: 5vh 20px 10vh;
-    }
-
-    .contact-header {
-        padding-top: 0;
-        padding-bottom: 4vh;
-    }
-
-    .contact-header h1 {
-        font-size: 23vw;
-        line-height: 0.9;
-    }
-
-    .contact-header-note {
-        margin-top: 6vh;
-        max-width: 90%;
-        font-size: 0.68rem;
-        line-height: 1.5;
-    }
-
-    .contact-content {
-        grid-template-columns: 1fr;
-        row-gap: 7vh;
-        padding-top: 5vh;
-    }
-
-    .contact-intro {
-        max-width: 95%;
-        margin-bottom: 5vh;
-        font-size: 2.1rem;
-    }
-
-    .form-field {
-        margin-bottom: 3.5vh;
-    }
-
-    .form-field input,
-    .form-field textarea {
-        font-size: 1.2rem;
-    }
-
     .contact-images {
-        --contact-gap: 0.8rem;
-        min-height: 690px;
+        --contact-gap: 0.9rem;
+
+        min-height: 540px;
     }
+
+
+    /* PRIMARY */
 
     .contact-photo-primary {
-        width: 92%;
+        width: 90%;
+
         margin-left: auto;
     }
 
     .contact-photo-primary img {
-        height: 255px;
+        height: 265px;
     }
 
+
+    /* SUBWAY — still overlaps primary */
+
     .contact-photo-secondary {
-        width: 46%;
+        width: 43%;
+
         left: 0;
-        top: 195px;
+
+        top: 205px;
     }
 
     .contact-photo-secondary img {
         height: 205px;
     }
 
+
+    /* PARTY — separated equally from both */
+
     .contact-photo-tertiary {
-        width: 46%;
-        left: calc(46% + var(--contact-gap));
-        top: calc(255px + var(--contact-gap));
+        width: 43%;
+
+        left: calc(43% + var(--contact-gap));
+
+        top: calc(265px + var(--contact-gap));
     }
 
     .contact-photo-tertiary img {
-        height: 170px;
+        height: 175px;
     }
 
-}
 }
 
     /* FOOTER */
