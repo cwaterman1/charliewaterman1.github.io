@@ -1178,19 +1178,33 @@ footer {
         object-position: center 42%;
     }
 
-    .performance-photo {
-        width: 62%;
+   .performance-photo {
+    width: 52%;
 
-        margin-top: var(--photo-gap);
+    margin-top: var(--photo-gap);
 
-        transform: translateX(0);
-    }
+    margin-left: 0;
 
-    .performance-photo img {
-        aspect-ratio: 4 / 3;
+    position: relative;
 
-        object-fit: cover;
-        object-position: center center;
+    z-index: 1;
+
+    transform: none;
+}
+
+.performance-photo img {
+    width: 100%;
+
+    aspect-ratio: 4 / 3;
+
+    object-fit: cover;
+
+    object-position: center center;
+}
+}
+
+
+   
     }
 
     .right-column {
